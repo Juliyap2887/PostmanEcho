@@ -12,7 +12,7 @@ class PostmanEchoTest {
 // Предусловия
         given()
                 .baseUri("https://postman-echo.com")
-                .contentType("text/plain; charset=UTF-8")
+                .contentType("text/plain; charset=UTF-8") // если текст на русском
                 .body("Сегодня идет снег?") // отправляемые данные (заголовки и query можно выставлять аналогично)
 // Выполняемые действия
                 .when()
@@ -20,7 +20,7 @@ class PostmanEchoTest {
 // Проверки
                 .then()
                 .statusCode(200)
-                .body("data", equalTo("Сегодня идет снег?"))
+                .body("data", equalTo("Сегодня не идет снег?"))
         ;
     }
 }
